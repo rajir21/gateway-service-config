@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: trade
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/trade/**
+      - id: tradeValidation
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/validate/**
+      - id: home
+        uri: http://localhost:8081/
+        predicates:
+          - Path=/
