@@ -10,7 +10,9 @@ public class SpringCloudConfig {
 
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
-    	
+    	// kong based, rate limitting, weighted routing
+        //Stronger authentication Oauths high sensitive data
+
         return builder.routes()
                 .route(r -> r.path("/trade/**")
                         .uri("http://localhost:8081/")
