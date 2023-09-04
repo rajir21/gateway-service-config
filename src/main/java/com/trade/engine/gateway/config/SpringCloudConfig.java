@@ -24,6 +24,10 @@ public class SpringCloudConfig {
                 .route(r -> r.path("/")
                         .uri("http://localhost:8081/")
                         .id("home"))
+
+                .route(r -> r.path("/rules/**")
+                        .uri("http://localhost:8091/")
+                        .id("tradeRules"))
                 .build();
 
 
